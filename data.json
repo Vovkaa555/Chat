@@ -1,0 +1,64 @@
+[
+    {
+     "contactID": 1,
+     "name": "Alice",
+     "surname": "Freeman",
+     "photo": "https://as2.ftcdn.net/v2/jpg/03/20/10/25/1000_F_320102500_sdjvXasAbf0m3CmeosLivikzXXJGxQjf.jpg",
+     "values": [
+      {
+       "type": "recieved",
+       "value": "You are the worst!",
+       "time": "Mon Jun 12 2017 12:34:51 GMT+0300 (за східноєвропейським літнім часом)"
+      }
+     ]
+    },
+    {
+     "contactID": 2,
+     "name": "Josefina",
+     "surname": "",
+     "photo": "https://novitains.com/wp-content/uploads/2021/07/IPP-woman-coffee-computer.png",
+     "values": [
+      {
+       "type": "recieved",
+       "value": "Quickly come to the meeting room 1B, we have a big server issue",
+       "time": "Sat Feb 18 2017 16:00:42 GMT+0200 (за східноєвропейським стандартним часом)"
+      },
+      {
+       "type": "sended",
+       "value": "I`m having breakfast right now, can`t you wait for 10 minutes?",
+       "time": "Sat Feb 18 2017 16:05:11 GMT+0200 (за східноєвропейським стандартним часом)"
+      },
+      {
+       "type": "recieved",
+       "value": "We are losing money! Quick!",
+       "time": "Sat Feb 18 2017 16:10:13 GMT+0200 (за східноєвропейським стандартним часом)"
+      }
+     ]
+    },
+    {
+     "contactID": 3,
+     "name": "Velazques",
+     "surname": "",
+     "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIXvs2ciaxsYV1iNKtYFCdAPepX00PhDiHyw&usqp=CAU",
+     "values": [
+      {
+       "type": "recieved",
+       "value": "Quickly come to the meeting room 1B, we have a big server issue",
+       "time": "Sat Mar 18 2017 12:21:12 GMT+0200 (за східноєвропейським стандартним часом)"
+      }
+     ]
+    },
+    {
+     "contactID": 4,
+     "name": "Barrera",
+     "surname": "",
+     "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKwtQx4XsS3SY2LenqQb1gS6jPuzE2WF2Thg&usqp=CAU",
+     "values": [
+      {
+       "type": "recieved",
+       "value": "Ukraine is the most beautiful country in whole world!",
+       "time": "Sat Feb 18 2017 08:02:03 GMT+0200 (за східноєвропейським стандартним часом)"
+      }
+     ]
+    }
+   ]

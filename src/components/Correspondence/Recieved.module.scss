@@ -1,0 +1,36 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 0;
+    width: 100%;
+
+    span {
+        font-size: 10px;
+        padding-left: 80px;
+        color: rgb(160, 160, 160)
+    }
+    .recieved {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 70%;
+
+        img {
+            height: 40px;
+            width: 40px;
+            padding: 10px;
+            border-radius: 30px;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        p {
+            font-size: 13px;
+            padding: 12px;
+            color: rgb(251, 251, 251);
+            background-color: rgb(61, 67, 86);
+            border-radius: 25px;
+            margin: 5px 0;
+        }
+    }
+}

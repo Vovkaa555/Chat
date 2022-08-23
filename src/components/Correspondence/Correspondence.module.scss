@@ -1,0 +1,45 @@
+.root {
+    .info {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 60px;
+        padding-left: 10px;
+        background-color: rgb(251, 251, 251);
+        border-bottom: 1px solid rgb(231, 231, 231);
+        
+        & span {
+            font-size: 18px;
+            padding-left: 5px;
+        }
+
+        .photo {
+            position: relative;
+
+            img:nth-child(1) {
+                height: 40px;
+                width: 40px;
+                padding: 10px;
+                border-radius: 30px;
+                object-fit: cover;
+                z-index: 1;
+            }
+
+            img:nth-child(2) {
+                height: 13px;
+                width: 13px;
+                object-fit: cover;
+                position: absolute;
+                left: 40px;
+                top: 40px;
+                z-index: 2;
+            }
+        }
+
+    }
+
+    .correspondence {
+        height: 370px;
+        overflow-y: auto;
+    } 
+}

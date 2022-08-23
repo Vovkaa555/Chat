@@ -1,0 +1,65 @@
+.root {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid rgb(231, 231, 231);
+
+    &:hover {
+        background-color: rgb(231, 231, 231);
+        cursor: pointer;
+    }
+    
+    .photo {
+        position: relative;
+
+        & img:nth-child(1) {
+            height: 40px;
+            width: 40px;
+            padding: 10px;
+            border-radius: 30px;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        & img:nth-child(2) {
+            height: 13px;
+            width: 13px;
+            object-fit: cover;
+            position: absolute;
+            left: 40px;
+            top: 40px;
+            z-index: 2;
+        }
+    }
+    .contact {
+        width: 315px;
+        height: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        float: top;
+        margin: 0;
+        padding-right: 5px;
+
+        & span:nth-child(2) {
+            font-size: 12px;
+        }
+    }
+    .information p {
+        margin: 0;
+        padding-top: 5px;
+        width: 240px;
+        overflow-y: hidden;
+        font-size: 12px;
+        max-height: 40px;
+        color: rgb(160, 160, 160)
+    }
+}
+
+
+
+
+
+
+

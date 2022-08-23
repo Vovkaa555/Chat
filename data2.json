@@ -1,0 +1,44 @@
+[
+    {
+     "type": "recieved",
+     "value": "You are the worst!",
+     "time": "Mon Jun 12 2017 12:34:51 GMT+0300 (за східноєвропейським літнім часом)",
+     "id": "1",
+     "chatId": "1"
+    },
+    {
+     "type": "recieved",
+     "value": "Quickly come to the meeting room 1B, we have a big server issue",
+     "time": "Sat Feb 18 2017 16:00:42 GMT+0200 (за східноєвропейським стандартним часом)",
+     "id": "2",
+     "chatId": "2"
+    },
+    {
+     "type": "sended",
+     "value": "I`m having breakfast right now, can`t you wait for 10 minutes?",
+     "time": "Sat Feb 18 2017 16:05:11 GMT+0200 (за східноєвропейським стандартним часом)",
+     "id": "3",
+     "chatId": "2"
+    },
+    {
+     "type": "recieved",
+     "value": "We are losing money! Quick!",
+     "time": "Sat Feb 18 2017 16:10:13 GMT+0200 (за східноєвропейським стандартним часом)",
+     "id": "4",
+     "chatId": "2"
+    },
+    {
+     "type": "recieved",
+     "value": "Quickly come to the meeting room 1B, we have a big server issue",
+     "time": "Sat Mar 18 2017 12:21:12 GMT+0200 (за східноєвропейським стандартним часом)",
+     "id": "5",
+     "chatId": "3"
+    },
+    {
+     "type": "recieved",
+     "value": "Ukraine is the most beautiful country in whole world!",
+     "time": "Sat Feb 18 2017 08:02:03 GMT+0200 (за східноєвропейським стандартним часом)",
+     "id": "6",
+     "chatId": "4"
+    }
+   ]
