@@ -9,7 +9,7 @@ import SendMessage from '../components/SendMessage/SendMessage';
 import Contacts from '../components/Contacts/Contacts';
 import Correspondence from '../components/Correspondence/Correspondence';
 
-const Home = ({ searchValue, ...profile }) => {
+const Home = ({ searchValue }) => {
   const [items, setItems] = React.useState([]);
   const [messages, setMessages] = React.useState([]);
   const [activeContact, setActiveContact] = React.useState(0);
@@ -68,10 +68,13 @@ const Home = ({ searchValue, ...profile }) => {
         <div className={styles.account_search}>
           <div className={styles.login}>
             <div className={styles.avatar}>
-              <img alt="" src={profile.imageUrl} />
+              <img
+                alt=""
+                src="	https://flyclipart.com/thumb2/account-avatar-login-man-person-user-icon-935699.png"
+              />
               <img src={Logo} alt="confirm" />
             </div>
-            <span>{profile.name}</span>
+            <span></span>
           </div>
           <Search />
         </div>
