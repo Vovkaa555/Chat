@@ -34,7 +34,6 @@ function App() {
   const logOut = () => {
     setProfile('');
   };
-  console.log(profile);
 
   return (
     <div className={styles.root}>
