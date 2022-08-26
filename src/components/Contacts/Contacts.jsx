@@ -3,17 +3,22 @@ import styles from './Contacts.module.scss';
 
 import Logo from '../../assets/confirm-icon.png';
 
-const Contacts = ({ parentCallback, ...obj }) => {
-  const [activeContact, setActiveContact] = React.useState(obj.contactID);
+export const Contacts = ({ messages, activeObjectCallback, parentCallback, ...obj }) => {
+  const [activeContact, setActiveContact] = React.useState(obj.id);
+  const [activeObject, setActiveObject] = React.useState(obj);
+  const lastInfo = messages.length - 1;
+
   const onClickContact = () => {
-    setActiveContact(obj.contactID);
-    parentCallback(obj.contactID);
+    setActiveContact(obj.id);
+    parentCallback(obj.id);
+    activeObjectCallback(obj);
+    setActiveObject(obj);
   };
 
-  const lastInfo = obj.values.length - 1;
-  let date = new Date(obj.values[0].time);
-  const options = { month: 'short', day: 'numeric', year: 'numeric' };
-  const dateFormat = new Intl.DateTimeFormat('en-US', options).format(date);
+  //const lastInfo = obj.values.length - 1;
+  //let date = new Date(obj.values[0].time);
+  //const options = { month: 'short', day: 'numeric', year: 'numeric' };
+  //const dateFormat = new Intl.DateTimeFormat('en-US', options).format(date);
 
   return (
     <div className={styles.root} onClick={onClickContact}>
@@ -26,12 +31,12 @@ const Contacts = ({ parentCallback, ...obj }) => {
           <span>
             {obj.name} {obj.surname}
           </span>
-          <span>{dateFormat}</span>
         </div>
-        <p>{obj.values[lastInfo].value}</p>
       </div>
     </div>
   );
 };
 
 export default Contacts;
+//<span>{dateFormat}</span>
+//<p>{messages[lastInfo].value}</p>

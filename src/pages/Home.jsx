@@ -1,90 +1,88 @@
 import React from 'react';
-import './Home.css';
+import axios from 'axios';
+
+import styles from './Home.module.scss';
+
 import Logo from '../assets/confirm-icon.png';
 import Search from '../components/Search/Search';
 import SendMessage from '../components/SendMessage/SendMessage';
 import Contacts from '../components/Contacts/Contacts';
 import Correspondence from '../components/Correspondence/Correspondence';
 
-const Home = ({ searchValue }) => {
+const Home = ({ searchValue, ...profile }) => {
   const [items, setItems] = React.useState([]);
-  const [itemsId, setItemsId] = React.useState([]);
+  const [messages, setMessages] = React.useState([]);
   const [activeContact, setActiveContact] = React.useState(0);
+  const [activeObject, setActiveObject] = React.useState(0);
+  const [isSended, setIsSended] = React.useState(false);
+
+  const callbackContact = React.useCallback((activeObject) => {
+    setActiveObject(activeObject);
+  }, []);
 
   const callback = React.useCallback((activeContact) => {
     setActiveContact(activeContact);
   }, []);
-  const contactId = activeContact > 0 ? `contactID=${activeContact}` : ``;
+
+  const isSendedCallback = React.useCallback((isSended) => {
+    setIsSended(isSended);
+  }, []);
+
+  const contactId = activeContact > 0 ? `${activeContact}/messages` : ``;
   const search = searchValue ? `&search=${searchValue}` : ``;
+  const chatScroll = document.getElementById('Correspondence');
+  const windowScroll = () => (chatScroll ? chatScroll.scrollBy(0, 10000) : window.scrollTo(0, 0));
 
-  const getData = async () => {
-    const response = await fetch(`https://63038e9a0de3cd918b38f666.mockapi.io/Chat?${search}`);
-
-    if (!response.ok) {
-      throw new Error('Data coud not be fetched!');
-    } else {
-      return response.json();
-    }
-  };
   React.useEffect(() => {
-    getData()
-      .then((res) => {
-        setItems(res);
-      })
-      .catch((e) => {
-        console.log(e.message);
-      });
+    return () => {
+      setTimeout(windowScroll(), 100);
+    };
+  }, [messages]);
+
+  React.useEffect(() => {
+    axios
+      .get(`https://63038e9a0de3cd918b38f666.mockapi.io/chat?${search}`)
+      .then((response) => setItems(response.data));
   }, [searchValue]);
 
-  const getId = async () => {
-    const responseId = await fetch(`https://63038e9a0de3cd918b38f666.mockapi.io/Chat?${contactId}`);
-
-    if (!responseId.ok) {
-      throw new Error('Data coud not be fetched!');
-    } else {
-      return responseId.json();
-    }
-  };
   React.useEffect(() => {
-    getId()
-      .then((res) => {
-        setItemsId(res);
-      })
-      .catch((e) => {
-        console.log(e.message);
-      });
-  }, [contactId]);
+    axios
+      .get(`https://63038e9a0de3cd918b38f666.mockapi.io/chat/${contactId}`)
+      .then((response) => setMessages(response.data));
+  }, [contactId, isSended]);
 
   const contacts = items.map((obj) => (
-    <Contacts key={obj.contactID} parentCallback={callback} {...obj} />
-  ));
-
-  const correspondence = itemsId.map((objId) => (
-    <Correspondence key={objId.contactID} {...objId} />
+    <Contacts
+      key={obj.id}
+      parentCallback={callback}
+      activeObjectCallback={callbackContact}
+      messages={messages}
+      className="active"
+      {...obj}
+    />
   ));
 
   return (
-    <div className="content">
-      <div className="main-menu">
-        <div className="account-search">
-          <div className="avatar">
-            <img
-              alt=""
-              src="	https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ5924I__M_yoBuyDlqQMxh-FwCSiAul_4gA&usqp=CAU"
-            />
-            <img src={Logo} alt="confirm" />
+    <div className={styles.root}>
+      <div className={styles.main_menu}>
+        <div className={styles.account_search}>
+          <div className={styles.login}>
+            <div className={styles.avatar}>
+              <img alt="" src={profile.imageUrl} />
+              <img src={Logo} alt="confirm" />
+            </div>
+            <span>{profile.name}</span>
           </div>
-
           <Search />
         </div>
         <h4>Chats</h4>
-        <div className="contact-list">{contacts}</div>
+        <div className={styles.contact_list}>{contacts}</div>
       </div>
-      {itemsId.length === 1 ? (
-        <div className="chat">
-          {correspondence}
-          <div className="send-block">
-            <SendMessage />
+      {activeObject ? (
+        <div className={styles.chat}>
+          <Correspondence {...messages} photo={activeObject.photo} name={activeObject.name} />
+          <div className={styles.send_block}>
+            <SendMessage isSendedCallback={isSendedCallback} {...activeObject} />
           </div>
         </div>
       ) : (

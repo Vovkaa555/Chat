@@ -5,8 +5,8 @@
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        float: right;
-        width: 70%;
+       
+        width: 100%;
 
         p {
             font-size: 13px;
@@ -14,6 +14,7 @@
             background-color: rgb(231, 231, 231);
             border-radius: 25px;
             margin: 5px;
+            float: right;
         }
         span {
             font-size: 10px;

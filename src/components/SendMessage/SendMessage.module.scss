@@ -2,7 +2,7 @@
     position: relative;
     padding: 10px;
     display: flex;
-    width: 100%;
+    width: 95%;
     justify-content: center;
     
     & input {
@@ -25,10 +25,18 @@
         top: 20px;
         right: 35px;
         color: rgb(154, 154, 154);
+        & :hover {
+            color: black;
+            cursor: pointer;
+            transition: 0.2s;
+        }
     }
-    & .logo :hover {
-        color: black;
-        cursor: pointer;
-        transition: 0.2s;
-    }
+    .logo_disabled {
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        top: 20px;
+        right: 35px;
+        color: rgb(211, 211, 211);
+    } 
 }

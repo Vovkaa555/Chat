@@ -1,8 +1,35 @@
-.root {
-    html, body {
-        margin: 0;
-        padding: 0;
-    }
+html, body {
+    margin: 0;
+    padding: 0;
+}
 
+.root {
+    .app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 98vh;
+    @media only screen and (max-width: 440px) and (min-width: 250px) {
+       
+       justify-content: flex-start;
+       align-items: flex-start;
+    }
+ 
+        .main {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+
+            .log_out {
+                position: absolute;
+                top: 5px;
+                left: 280px;
+                z-index: 2;
+                cursor: pointer;
+                white-space: nowrap;
+            }
+        }
+    }
 }
 

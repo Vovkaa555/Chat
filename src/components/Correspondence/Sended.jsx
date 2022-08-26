@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './Sended.module.scss';
 
-function Sended({ ...message }) {
-  let date = new Date(message.time);
+function Sended({ ...messages }) {
+  console.log(messages.type);
+  let date = new Date(messages.time);
   const options = {
     month: 'numeric',
     day: 'numeric',
@@ -14,7 +15,7 @@ function Sended({ ...message }) {
   return (
     <div className={styles.root}>
       <div className={styles.sended}>
-        <p>{message.value}</p>
+        <p>{messages.value}</p>
         <span>{dateFormat}</span>
       </div>
     </div>
@@ -22,3 +23,5 @@ function Sended({ ...message }) {
 }
 
 export default Sended;
+
+//

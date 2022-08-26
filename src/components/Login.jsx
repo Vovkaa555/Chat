@@ -12,6 +12,7 @@ const Login = () => {
         scope: '',
       });
     };
+    console.log(Boolean(profile));
     gapi.load('client:auth2', initClient);
   });
 
@@ -24,19 +25,19 @@ const Login = () => {
   };
 
   const logOut = () => {
-    setProfile(null);
+    setProfile('');
   };
 
   return (
     <div>
-      {profile ? (
+      {Boolean(profile) ? (
         <div>
           <img alt="" src={profile.imageUrl} />
           <p>Name: {profile.name}</p>
           <p>Email Address: {profile.email}</p>
           <br />
           <br />
-          <GoogleLogout clientId={clientId} buttonText="Log out" onLogoutSuccess={logOut} />
+          <GoogleLogout buttonText="Log out" onLogoutSuccess={logOut} />
         </div>
       ) : (
         <GoogleLogin

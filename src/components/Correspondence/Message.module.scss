@@ -31,6 +31,31 @@
             background-color: rgb(61, 67, 86);
             border-radius: 25px;
             margin: 5px 0;
+            word-break: break-all;
+        }
+    }
+    .sended {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        float: right;
+        width: 100%;
+
+        p {
+            font-size: 13px;
+            padding: 12px;
+            background-color: rgb(231, 231, 231);
+            border-radius: 25px;
+            margin: 5px;
+            max-width: 70%;
+            word-break: break-all
+            
+        }
+        span {
+            font-size: 10px;
+            padding-right: 10px;
+            color: rgb(160, 160, 160);
+            float: right;   
         }
     }
 }

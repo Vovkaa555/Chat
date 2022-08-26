@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './Recieved.module.scss';
 
-const Recieved = ({ ...message }) => {
-  let date = new Date(message.time);
+const Recieved = ({ photo, ...messages }) => {
+  let date = new Date(messages.time);
 
   const options = {
     month: 'numeric',
@@ -16,11 +16,8 @@ const Recieved = ({ ...message }) => {
   return (
     <div className={styles.root}>
       <div className={styles.recieved}>
-        <img
-          alt=""
-          src="https://novitains.com/wp-content/uploads/2021/07/IPP-woman-coffee-computer.png"
-        />
-        <p>{message.value}</p>
+        <img alt="" src={photo} />
+        <p>{messages.value}</p>
       </div>
       <span>{dateFormat}</span>
     </div>
