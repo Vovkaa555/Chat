@@ -14,12 +14,14 @@ const SendMessage = ({ isSendedCallback, ...activeObject }) => {
   let textInput = React.createRef();
   let activeObjectId = activeObject.id;
 
+  //sends callback for rerender components at Home component
   React.useEffect(() => {
     return () => {
       isSendedCallback(isSended);
     };
   }, [isSended, value, norrisResponse, watcher]);
 
+  //sends answer from ChuckNorris.io to MockAPI
   const postResponse = async () => {
     const recieved = {
       type: 'recieved',
@@ -33,6 +35,7 @@ const SendMessage = ({ isSendedCallback, ...activeObject }) => {
       .then((response) => setValue(response.data), setIsSended(value));
   };
 
+  //gets answer from ChuckNorris.io
   React.useEffect(() => {
     axios.get(`https://api.chucknorris.io/jokes/random`).then((response) => {
       setNorrisResponse(response.data);
@@ -40,6 +43,7 @@ const SendMessage = ({ isSendedCallback, ...activeObject }) => {
     });
   }, [watcher]);
 
+  //sends users message to MockAPI
   let onOnclickHandler = () => {
     const state = {
       type: 'sended',

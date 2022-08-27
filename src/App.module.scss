@@ -9,11 +9,15 @@ html, body {
     justify-content: center;
     align-items: center;
     height: 98vh;
-    @media only screen and (max-width: 440px) and (min-width: 250px) {
-       
-       justify-content: flex-start;
+    @media only screen and (max-width: 440px) {
        align-items: flex-start;
+       justify-content: flex-start;
+ 
     }
+    @media only screen and (max-height: 530px) {
+        align-items: flex-start;
+        justify-content: flex-start;
+     }
  
         .main {
             position: relative;
