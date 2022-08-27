@@ -11,6 +11,7 @@ function App() {
   const [searchValue, setSearchValue] = React.useState('');
   //if login is true - show main page
   const [profile, setProfile] = React.useState([]);
+  const [profileName, SetProfileName] = React.useState();
   const clientId = '355600754553-rk677euu1a2pvums191rm3lbefa7q22u.apps.googleusercontent.com';
   React.useEffect(() => {
     const initClient = () => {
@@ -38,7 +39,7 @@ function App() {
     <div className={styles.root}>
       <SearchContext.Provider value={{ searchValue, setSearchValue }}>
         <div className={styles.app}>
-          {Boolean(profile) ? (
+          {Boolean(profile) && profile.name !== undefined ? (
             <div className={styles.main}>
               <GoogleLogout
                 clientId={clientId}
@@ -49,14 +50,16 @@ function App() {
               <Home searchValue={searchValue} {...profile} />
             </div>
           ) : (
-            <GoogleLogin
-              clientId={clientId}
-              buttonText="Sign in with Google"
-              onSuccess={onSuccess}
-              onFailure={onFailure}
-              cookiePolicy={'single_host_origin'}
-              isSignedIn={true}
-            />
+            <div className={styles.main}>
+              <GoogleLogin
+                clientId={clientId}
+                buttonText="Sign in with Google"
+                onSuccess={onSuccess}
+                onFailure={onFailure}
+                cookiePolicy={'single_host_origin'}
+                isSignedIn={true}
+              />
+            </div>
           )}
         </div>
       </SearchContext.Provider>
